@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Toyota Yaris",
+    "category": "small",
+    "price": 800000,
+    "status": false,
+    "startRentAt": null,
+    "finishRentAt": null,
+    "image": "https://firebasestorage.googleapis.com/v0/b/bcr-rental-car.appspot.com/o/uploads%2Fcars%2Fmobil-small-toyota-yaris.png?alt=media",
+    "createdAt": "2022-11-15T03:18:57.343Z",
+    "updatedAt": "2022-11-15T03:18:57.343Z"
+  },
+  {
+    "id": 2,
+    "name": "Toyota Fortuner",
+    "category": "medium",
+    "price": 1500000,
+    "status": false,
+    "startRentAt": null,
+    "finishRentAt": null,
+    "image": "https://firebasestorage.googleapis.com/v0/b/bcr-rental-car.appspot.com/o/uploads%2Fcars%2Fmobil-medium-toyota-fortuner.png?alt=media",
+    "createdAt": "2022-11-15T03:18:57.343Z",
+    "updatedAt": "2022-11-15T03:18:57.343Z"
+  },
+  {
+    "id": 3,
+    "name": "Toyota Landcruiser",
+    "category": "medium",
+    "price": 2000000,
+    "status": false,
+    "startRentAt": null,
+    "finishRentAt": null,
+    "image": "https://firebasestorage.googleapis.com/v0/b/bcr-rental-car.appspot.com/o/uploads%2Fcars%2Fmobil-medium-toyota-landcruiser.png?alt=media",
+    "createdAt": "2022-11-15T03:18:57.343Z",
+    "updatedAt": "2022-11-15T03:18:57.343Z"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "email": "cathalinasechan@gmail.com",
+    "password": "$2b$10$ucr8dKSOon67JCEwdO0O/eDCa.iZY03.skqGsX4BGP1FK4kovQXCW",
+    "role": "Admin",
+    "updatedAt": "2022-11-16T11:57:51.172Z",
+    "createdAt": "2022-11-16T11:57:51.172Z"
+  },
+  {
+    "id": 2,
+    "email": "rainpedia@icloud.com",
+    "password": "$2b$10$AWLuRytDPMJVPFIJYrn6POKQ9H3uv3rzJXz6zO/6tYD9cWSsP8C4O",
+    "role": "Admin",
+    "updatedAt": "2022-11-16T12:37:40.233Z",
+    "createdAt": "2022-11-16T12:37:40.233Z"
+  },
+  {
+    "id": 3,
+    "email": "salsabillanatasyaa@gmail.com",
+    "password": "$2b$10$QP32gPP9tiL81v0Y847XZev7wSpiOo2yEMZrFmqq7RHVb.hhnn2qG",
+    "role": "Customer",
+    "updatedAt": "2022-11-16T12:38:32.940Z",
+    "createdAt": "2022-11-16T12:38:32.940Z"
+  }
+]

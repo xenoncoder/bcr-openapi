@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "totalPrice": 300000,
+    "startRentAt": "2022-03-11T00:00:00.000Z",
+    "finishRentAt": "2022-03-11T00:00:00.000Z",
+    "status": false,
+    "userId": 2,
+    "carId": 3,
+    "createdAt": "2022-03-09T15:56:35.257Z",
+    "updatedAt": "2022-03-09T15:56:35.257Z"
+  },
+  {
+    "id": 2,
+    "totalPrice": 3000000,
+    "startRentAt": "2022-03-15T00:00:00.000Z",
+    "finishRentAt": "2022-03-20T00:00:00.000Z",
+    "status": false,
+    "userId": 1,
+    "carId": 1,
+    "createdAt": "2022-03-09T15:58:20.966Z",
+    "updatedAt": "2022-03-09T15:58:20.966Z"
+  }
+]
