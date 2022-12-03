@@ -4,7 +4,7 @@ const OrderCustomerControllers = require("../../controllers/Customer/orderCustom
 
 /**
  * @swagger
- * /api/api/customer/order:
+ * /api/customer/order:
  *   post:
  *     summary: Create new order
  *     description: Create new order
@@ -42,7 +42,7 @@ router.post("/", OrderCustomerControllers.addOrderCustomer);
 
 /**
  * @swagger
- * /api/customer/order:
+ * /customer/order:
  *   get:
  *     summary: List orders
  *     description: List orders
@@ -73,7 +73,7 @@ router.get("/", OrderCustomerControllers.getOrdersCustomer);
 
 /**
  * @swagger
- * /api/customer/order/{id}:
+ * /customer/order/{id}:
  *   get:
  *     summary: Get order
  *     description: Get order
@@ -108,7 +108,7 @@ router.get("/:id", OrderCustomerControllers.getOrderByIdCustomer);
 
 /**
  * @swagger
- * /api/customer/order/{id}/slip:
+ * /customer/order/{id}/slip:
  *   put:
  *     summary: Upload payment slip
  *     description: Upload payment slip
@@ -147,7 +147,7 @@ router.put("/:id/slip", OrderCustomerControllers.uploadSlipOrderCustomer);
 
 /**
  * @swagger
- * /api/customer/order/{id}:
+ * /customer/order/{id}:
  *   put:
  *     summary: Update order
  *     description: Update order
@@ -193,7 +193,7 @@ router.put("/:id", OrderCustomerControllers.updateOrderCustomer);
 
 /**
  * @swagger
- * /api/customer/order/{id}:
+ * /customer/order/{id}:
  *   delete:
  *     summary: Delete order
  *     description: Delete order

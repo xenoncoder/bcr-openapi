@@ -43,7 +43,7 @@ class UserAdminControllers {
         });
       } else {
         const user = { email: userExists.email, role: userExists.role };
-        user.accessToken = signToken(user);
+        user.access_token = signToken(user);
         res.status(201).json(user);
       }
     } catch (err) {

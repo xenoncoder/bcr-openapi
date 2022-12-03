@@ -15,12 +15,12 @@ const options = {
         AdminAccessToken: {
           type: "apiKey",
           in: "header",
-          name: "accessToken",
+          name: "access_token",
         },
         CustomerAccessToken: {
           type: "apiKey",
           in: "header",
-          name: "accessToken",
+          name: "access_token",
         },
       },
     },

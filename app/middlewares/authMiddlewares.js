@@ -5,7 +5,7 @@ const { verifyToken } = require("../helpers/jwtHelpers");
 class AuthMiddlewares {
   static async serverAuth(req, res, next) {
     try {
-      const decoded = verifyToken(req.headers.accessToken);
+      const decoded = verifyToken(req.headers.access_token);
 
       const data = await User.findOne({
         rejectOnEmpty: false,
@@ -31,7 +31,7 @@ class AuthMiddlewares {
   }
   static async clientAuth(req, res, next) {
     try {
-      const decoded = verifyToken(req.headers.accessToken);
+      const decoded = verifyToken(req.headers.access_token);
 
       const data = await User.findOne({
         rejectOnEmpty: false,

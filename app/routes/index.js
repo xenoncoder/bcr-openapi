@@ -21,7 +21,7 @@ const routerCustomer = require("./Customer");
  *                 type: string
  *                 example: Something went wrong.
  * */
-router.use("/api/admin", routerAdmin);
-router.use("/api/customer", routerCustomer);
+router.use("/admin", routerAdmin);
+router.use("/customer", routerCustomer);
 
 module.exports = router;

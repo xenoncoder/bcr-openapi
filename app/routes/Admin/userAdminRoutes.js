@@ -4,7 +4,7 @@ const UserAdminControllers = require("../../controllers/Admin/userAdminControlle
 
 /**
  * @swagger
- * /api/admin/auth/register:
+ * /admin/auth/register:
  *   post:
  *     description: Registering admin
  *     summary: Register
@@ -45,7 +45,7 @@ router.post("/register", UserAdminControllers.registerAdmin);
 
 /**
  * @swagger
- * /api/admin/auth/login:
+ * /admin/auth/login:
  *   post:
  *     operationId: adminLogin
  *     hidden: true
@@ -82,12 +82,12 @@ router.post("/register", UserAdminControllers.registerAdmin);
  *                 role:
  *                   type: string
  *                   example: Admin
- *                 accessToken:
+ *                 access_token:
  *                   type: string
  *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc
  *       400:
  *         description: Email Already Exists.
  */
-router.post("/login",UserAdminControllers.loginAdmin);
+router.post("/login", UserAdminControllers.loginAdmin);
 
 module.exports = router;
