@@ -3,7 +3,7 @@ const { comparePassword } = require("../../helpers/bcryptHelpers");
 const { signToken } = require("../../helpers/jwtHelpers");
 
 class UserCustomerControllers {
-  static async register(req, res) {
+  static async registerCustomer(req, res) {
     try {
       const { email, password, role } = req.body;
       const user = await User.findOne({
@@ -16,7 +16,7 @@ class UserCustomerControllers {
           message: "Email Already exists.",
         });
       } else {
-        const data = await User.create({ email, password, role });
+        const data = await User.create({ email, password, role: "Customer" });
         res.status(201).json(data);
       }
     } catch (err) {
@@ -24,7 +24,7 @@ class UserCustomerControllers {
     }
   }
 
-  static async login(req, res) {
+  static async loginCustomer(req, res) {
     try {
       const { email, password } = req.body;
       const userExists = await User.findOne({
@@ -43,8 +43,7 @@ class UserCustomerControllers {
         });
       } else {
         const user = { email: userExists.email, role: userExists.role };
-        const accessToken = signToken(user);
-        user.accessToken = accessToken;
+        user.accessToken = signToken(user);
         res.status(201).json(user);
       }
     } catch (err) {

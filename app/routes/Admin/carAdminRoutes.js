@@ -26,13 +26,13 @@ const CarAdminControllers = require("../../controllers/Admin/carAdminControllers
  *       500:
  *         $ref: "#/components/responses/InternalServerError"
  */
-router.get("/", CarAdminControllers.getCars);
+router.get("/", CarAdminControllers.getCarsAdmin);
 
 /**
  * @swagger
  * /api/admin/cars/{id}:
  *   get:
- *     description: Fetch Car By Id
+ *     description: Fetch Car ById
  *     security:
  *       - AdminAccessToken: []
  *     tags:
@@ -67,7 +67,7 @@ router.get("/", CarAdminControllers.getCars);
  *       500:
  *         $ref: "#/components/responses/InternalServerError"
  */
-router.get("/:id", CarAdminControllers.getCarById);
+router.get("/:id", CarAdminControllers.getCarByIdAdmin);
 
 /**
  * @swagger
@@ -117,13 +117,13 @@ router.get("/:id", CarAdminControllers.getCarById);
  *       500:
  *         $ref: "#/components/responses/InternalServerError"
  */
-router.post("/", CarAdminControllers.addCar);
+router.post("/", CarAdminControllers.addCarAdmin);
 
 /**
  * @swagger
  * /api/admin/cars/{id}:
  *   put:
- *     description: Update Car By Id
+ *     description: Update Car ById
  *     security:
  *       - AdminAccessToken: []
  *     tags:
@@ -185,13 +185,13 @@ router.post("/", CarAdminControllers.addCar);
  *       500:
  *         $ref: "#/components/responses/InternalServerError"
  */
-router.patch("/:id", CarAdminControllers.editCar);
+router.patch("/:id", CarAdminControllers.editCarAdmin);
 
 /**
  * @swagger
  * /api/admin/cars/{id}:
  *   delete:
- *     description: Delete Car By Id
+ *     description: Delete Car ById
  *     security:
  *       - AdminAccessToken: []
  *     tags:
@@ -222,6 +222,6 @@ router.patch("/:id", CarAdminControllers.editCar);
  *       500:
  *         $ref: "#/components/responses/InternalServerError"
  */
-router.delete("/:id", CarAdminControllers.deleteCar);
+router.delete("/:id", CarAdminControllers.deleteCarAdmin);
 
 module.exports = router;

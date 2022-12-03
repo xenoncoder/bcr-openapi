@@ -38,7 +38,7 @@ const OrderCustomerControllers = require("../../controllers/Customer/orderCustom
  *             schema:
  *               $ref: "#/components/schemas/Order"
  */
-router.post("/", OrderCustomerControllers.addOrder);
+router.post("/", OrderCustomerControllers.addOrderCustomer);
 
 /**
  * @swagger
@@ -69,7 +69,7 @@ router.post("/", OrderCustomerControllers.addOrder);
  *                       Car:
  *                         $ref: "#/components/schemas/Car"
  */
-router.get("/", OrderCustomerControllers.getOrders);
+router.get("/", OrderCustomerControllers.getOrdersCustomer);
 
 /**
  * @swagger
@@ -104,7 +104,7 @@ router.get("/", OrderCustomerControllers.getOrders);
  *                     Car:
  *                       $ref: "#/components/schemas/Car"
  */
-router.get("/:id", OrderCustomerControllers.getOrderById);
+router.get("/:id", OrderCustomerControllers.getOrderByIdCustomer);
 
 /**
  * @swagger
@@ -143,7 +143,7 @@ router.get("/:id", OrderCustomerControllers.getOrderById);
  *             schema:
  *               $ref: "#/components/schemas/Order"
  */
-router.put("/:id/slip", OrderCustomerControllers.uploadSlipOrder);
+router.put("/:id/slip", OrderCustomerControllers.uploadSlipOrderCustomer);
 
 /**
  * @swagger
@@ -189,7 +189,7 @@ router.put("/:id/slip", OrderCustomerControllers.uploadSlipOrder);
  *             schema:
  *               $ref: "#/components/schemas/Order"
  */
-router.put("/:id", OrderCustomerControllers.updateOrder);
+router.put("/:id", OrderCustomerControllers.updateOrderCustomer);
 
 /**
  * @swagger
@@ -222,8 +222,8 @@ router.put("/:id", OrderCustomerControllers.updateOrder);
  *                   example: "Delete success"
  *                 message:
  *                   type: string
- *                   example: "Order with id = 1 has been delete"
+ *                   example: "Order with id = 1 has been deleted"
  */
-router.delete("/:id", OrderCustomerControllers.deleteOrder);
+router.delete("/:id", OrderCustomerControllers.deleteOrderCustomer);
 
 module.exports = router;

@@ -31,7 +31,7 @@ const OrderAdminControllers = require("../../controllers/Admin/orderAdminControl
  *                     Car:
  *                       $ref: "#/components/schemas/Car"
  */
-router.get("/", OrderAdminControllers.getOrders);
+router.get("/", OrderAdminControllers.getOrdersAdmin);
 
 /**
  * @swagger
@@ -66,7 +66,7 @@ router.get("/", OrderAdminControllers.getOrders);
  *                   Car:
  *                     $ref: "#/components/schemas/Car"
  */
-router.get("/:id", OrderAdminControllers.getOrderById);
+router.get("/:id", OrderAdminControllers.getOrderByIdAdmin);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/:id", OrderAdminControllers.getOrderById);
  *       404:
  *         description: Order not found
  */
-router.patch("/:id", OrderAdminControllers.changeStatus);
+router.patch("/:id", OrderAdminControllers.changeStatusAdmin);
 
 /**
  * @swagger
@@ -132,6 +132,6 @@ router.patch("/:id", OrderAdminControllers.changeStatus);
  *       404:
  *         description: Order not found
  */
-router.delete("/:id", OrderAdminControllers.deleteOrder);
+router.delete("/:id", OrderAdminControllers.deleteOrderAdmin);
 
 module.exports = router;

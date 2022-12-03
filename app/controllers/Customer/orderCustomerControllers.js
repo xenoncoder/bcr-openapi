@@ -5,12 +5,15 @@ const { Car, Order, User } = require("../../databases/models");
 const firebase = require("../../helpers/firebaseHelpers");
 
 class OrderCustomerControllers {
-  static async addOrder(req, res) {
+  static async addOrderCustomer(req, res) {
     try {
       const { startRentAt, finishRentAt, carId } = req.body;
       const totalDay =
         (new Date(finishRentAt) - new Date(startRentAt)) / 86400000;
-      const car = await Car.findByPk(carId);
+      const car = await Car.findOne({
+        where: { carId },
+        rejectOnEmpty: true,
+      });
 
       if (!car) {
         return res.status(404).json({
@@ -35,7 +38,7 @@ class OrderCustomerControllers {
     }
   }
 
-  static async uploadSlipOrder(req, res) {
+  static async uploadSlipOrderCustomer(req, res) {
     try {
       if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).json({
@@ -79,7 +82,7 @@ class OrderCustomerControllers {
     }
   }
 
-  static async getOrders(req, res) {
+  static async getOrdersCustomer(req, res) {
     try {
       const orders = await Order.findAll(
         {
@@ -110,10 +113,11 @@ class OrderCustomerControllers {
     }
   }
 
-  static async getOrderById(req, res) {
+  static async getOrderByIdCustomer(req, res) {
     try {
       const id = req.params.id;
       const order = await Order.findByPk(id, {
+        rejectOnEmpty: true,
         include: [
           {
             model: User,
@@ -135,13 +139,16 @@ class OrderCustomerControllers {
     }
   }
 
-  static async updateOrder(req, res) {
+  static async updateOrderCustomer(req, res) {
     try {
       const id = req.params.id;
       const { startRentAt, finishRentAt, carId } = req.body;
       const totalDay =
         (new Date(finishRentAt) - new Date(startRentAt)) / 86400000;
-      const car = await Car.findByPk(carId);
+      const car = await Car.findOne({
+        where: { carId },
+        rejectOnEmpty: true,
+      });
 
       const totalPrice = (totalDay + 1) * car.price;
       const updateOrder = await Order.update(
@@ -165,7 +172,7 @@ class OrderCustomerControllers {
     }
   }
 
-  static async deleteOrder(req, res) {
+  static async deleteOrderCustomer(req, res) {
     try {
       const id = req.params.id;
       const data = await Order.destroy({

@@ -4,7 +4,7 @@ const { Car } = require("../../databases/models");
 const firebase = require("../../helpers/firebaseHelpers");
 
 class CarAdminControllers {
-  static async addCar(req, res) {
+  static async addCarAdmin(req, res) {
     try {
       const { name, category, price, status } = req.body;
       const searchCar = await Car.findOne({
@@ -44,7 +44,7 @@ class CarAdminControllers {
     }
   }
 
-  static async getCars(req, res) {
+  static async getCarsAdmin(req, res) {
     try {
       const data = await Car.findAll({ order: [["id", "ASC"]] });
       res
@@ -55,7 +55,7 @@ class CarAdminControllers {
     }
   }
 
-  static async getCarById(req, res) {
+  static async getCarByIdAdmin(req, res) {
     try {
       const id = req.params.id;
       const data = await Car.findOne({
@@ -70,7 +70,7 @@ class CarAdminControllers {
     }
   }
 
-  static async editCar(req, res) {
+  static async editCarAdmin(req, res) {
     try {
       const id = req.params.id;
       const { name, category, price } = req.body;
@@ -121,7 +121,7 @@ class CarAdminControllers {
     }
   }
 
-  static async deleteCar(req, res) {
+  static async deleteCarAdmin(req, res) {
     try {
       const id = req.params.id;
       const data = await Car.destroy({

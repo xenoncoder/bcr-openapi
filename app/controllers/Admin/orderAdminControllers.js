@@ -1,7 +1,7 @@
 const { Car, Order, User } = require("../../databases/models");
 
 class OrderAdminControllers {
-  static async getOrders(req, res) {
+  static async getOrdersAdmin(req, res) {
     try {
       const orders = await Order.findAll({
         include: [
@@ -25,7 +25,7 @@ class OrderAdminControllers {
     }
   }
 
-  static async getOrderById(req, res) {
+  static async getOrderByIdAdmin(req, res) {
     try {
       const id = req.params.id;
       const order = await Order.findByPk(id, {
@@ -51,7 +51,7 @@ class OrderAdminControllers {
     }
   }
 
-  static async changeStatus(req, res) {
+  static async changeStatusAdmin(req, res) {
     try {
       const id = req.params.id;
       const status = Number(req.body.status);
@@ -111,7 +111,7 @@ class OrderAdminControllers {
     }
   }
 
-  static async deleteOrder(req, res) {
+  static async deleteOrderAdmin(req, res) {
     try {
       const id = req.params.id;
       const data = await Order.destroy({

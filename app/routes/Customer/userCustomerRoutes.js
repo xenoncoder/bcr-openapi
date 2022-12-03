@@ -29,7 +29,6 @@ const UserCustomerControllers = require("../../controllers/Customer/userCustomer
  *                 type: string
  *                 description: Your role
  *                 enum:
- *                   - Admin
  *                   - Customer
  *     responses:
  *       201:
@@ -42,7 +41,7 @@ const UserCustomerControllers = require("../../controllers/Customer/userCustomer
  *         description: Email Already Exists.
 
  */
-router.post("/register", UserCustomerControllers.register);
+router.post("/register", UserCustomerControllers.registerCustomer);
 
 /**
  * @swagger
@@ -88,6 +87,6 @@ router.post("/register", UserCustomerControllers.register);
  *       400:
  *         description: Email Already Exists.
  */
-router.post("/login", UserCustomerControllers.login);
+router.post("/login", UserCustomerControllers.loginCustomer);
 
 module.exports = router;

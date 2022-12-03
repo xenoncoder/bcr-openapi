@@ -41,7 +41,7 @@ const UserAdminControllers = require("../../controllers/Admin/userAdminControlle
  *       400:
  *         description: Email Already Exists.
  */
-router.post("/register", UserAdminControllers.register);
+router.post("/register", UserAdminControllers.registerAdmin);
 
 /**
  * @swagger
@@ -88,6 +88,6 @@ router.post("/register", UserAdminControllers.register);
  *       400:
  *         description: Email Already Exists.
  */
-router.post("/login",UserAdminControllers.login);
+router.post("/login",UserAdminControllers.loginAdmin);
 
 module.exports = router;

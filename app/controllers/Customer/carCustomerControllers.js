@@ -1,7 +1,7 @@
 const { Car } = require("../../databases/models");
 
 class CarCustomerControllers {
-  static async getCars(req, res) {
+  static async getCarsCustomer(req, res) {
     try {
       const data = await Car.findAll();
       res.status(200).json(data);
@@ -10,10 +10,13 @@ class CarCustomerControllers {
     }
   }
 
-  static async getCarById(req, res) {
+  static async getCarByIdCustomer(req, res) {
     try {
       const id = req.params.id;
-      const car = await Car.findByPk(id);
+      const car = await Car.findOne({
+        where: { id },
+        rejectOnEmpty: true,
+      });
       if (car) {
         res.status(200).json(car);
       } else {

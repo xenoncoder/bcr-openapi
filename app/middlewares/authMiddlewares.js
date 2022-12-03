@@ -8,6 +8,7 @@ class AuthMiddlewares {
       const decoded = verifyToken(req.headers.accessToken);
 
       const data = await User.findOne({
+        rejectOnEmpty: false,
         where: {
           email: decoded.email,
         },
@@ -33,6 +34,7 @@ class AuthMiddlewares {
       const decoded = verifyToken(req.headers.accessToken);
 
       const data = await User.findOne({
+        rejectOnEmpty: false,
         where: {
           email: decoded.email,
         },

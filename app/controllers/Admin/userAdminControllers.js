@@ -3,7 +3,7 @@ const { comparePassword } = require("../../helpers/bcryptHelpers");
 const { signToken } = require("../../helpers/jwtHelpers");
 
 class UserAdminControllers {
-  static async register(req, res) {
+  static async registerAdmin(req, res) {
     try {
       const { email, password, role } = req.body;
       const user = await User.findOne({
@@ -24,7 +24,7 @@ class UserAdminControllers {
     }
   }
 
-  static async login(req, res) {
+  static async loginAdmin(req, res) {
     try {
       const { email, password } = req.body;
       const userExists = await User.findOne({
@@ -43,8 +43,7 @@ class UserAdminControllers {
         });
       } else {
         const user = { email: userExists.email, role: userExists.role };
-        const accessToken = signToken(user);
-        user.accessToken = accessToken;
+        user.accessToken = signToken(user);
         res.status(201).json(user);
       }
     } catch (err) {
