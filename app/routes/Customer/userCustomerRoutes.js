@@ -4,7 +4,7 @@ const UserCustomerControllers = require("../../controllers/Customer/userCustomer
 
 /**
  * @swagger
- * /customer/auth/register:
+ * /api/customer/auth/register:
  *   post:
  *     description: Registering customer
  *     summary: Register
@@ -45,7 +45,7 @@ router.post("/register", UserCustomerControllers.registerCustomer);
 
 /**
  * @swagger
- * /customer/auth/login:
+ * /api/customer/auth/login:
  *   post:
  *     operationId: customerLogin
  *     description: Login

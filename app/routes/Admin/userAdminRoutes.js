@@ -4,7 +4,7 @@ const UserAdminControllers = require("../../controllers/Admin/userAdminControlle
 
 /**
  * @swagger
- * /admin/auth/register:
+ * /api/admin/auth/register:
  *   post:
  *     description: Registering admin
  *     summary: Register
@@ -45,7 +45,7 @@ router.post("/register", UserAdminControllers.registerAdmin);
 
 /**
  * @swagger
- * /admin/auth/login:
+ * /api/admin/auth/login:
  *   post:
  *     operationId: adminLogin
  *     hidden: true

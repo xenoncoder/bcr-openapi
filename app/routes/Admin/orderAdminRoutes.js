@@ -4,7 +4,7 @@ const OrderAdminControllers = require("../../controllers/Admin/orderAdminControl
 
 /**
  * @swagger
- * /admin/order:
+ * /api/admin/order:
  *   get:
  *     description: List Orders
  *     deprecated: true
@@ -35,7 +35,7 @@ router.get("/", OrderAdminControllers.getOrdersAdmin);
 
 /**
  * @swagger
- * /admin/order/{id}:
+ * /api/admin/order/{id}:
  *   get:
  *     description: Get Order
  *     summary: Get Order
@@ -70,7 +70,7 @@ router.get("/:id", OrderAdminControllers.getOrderByIdAdmin);
 
 /**
  * @swagger
- * /admin/order/{id}:
+ * /api/admin/order/{id}:
  *   patch:
  *     description: Change Order Status
  *     summary: Change Order Status
@@ -110,7 +110,7 @@ router.patch("/:id", OrderAdminControllers.changeStatusAdmin);
 
 /**
  * @swagger
- * /admin/order/{id}:
+ * /api/admin/order/{id}:
  *   delete:
  *     operationId: adminDeleteOrder
  *     description: Delete Order

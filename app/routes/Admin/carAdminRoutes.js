@@ -4,7 +4,7 @@ const CarAdminControllers = require("../../controllers/Admin/carAdminControllers
 
 /**
  * @swagger
- * /admin/cars:
+ * /api/admin/cars:
  *   get:
  *     summary: List Cars
  *     operationId: listCars
@@ -30,7 +30,7 @@ router.get("/", CarAdminControllers.getCarsAdmin);
 
 /**
  * @swagger
- * /admin/cars/{id}:
+ * /api/admin/cars/{id}:
  *   get:
  *     description: Fetch Car ById
  *     security:
@@ -71,7 +71,7 @@ router.get("/:id", CarAdminControllers.getCarByIdAdmin);
 
 /**
  * @swagger
- * /admin/cars:
+ * /api/admin/cars:
  *   post:
  *     operationId: createCar
  *     description: Add a New Car
@@ -121,7 +121,7 @@ router.post("/", CarAdminControllers.addCarAdmin);
 
 /**
  * @swagger
- * /admin/cars/{id}:
+ * /api/admin/cars/{id}:
  *   put:
  *     description: Update Car ById
  *     security:
@@ -189,7 +189,7 @@ router.patch("/:id", CarAdminControllers.editCarAdmin);
 
 /**
  * @swagger
- * /admin/cars/{id}:
+ * /api/admin/cars/{id}:
  *   delete:
  *     description: Delete Car ById
  *     security:
