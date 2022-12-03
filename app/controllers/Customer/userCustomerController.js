@@ -5,7 +5,7 @@ const { signToken } = require("../../helpers/jwtHelpers");
 class UserCustomerControllers {
   static async registerCustomer(req, res) {
     try {
-      const { email, password, role } = req.body;
+      const { email, password } = req.body;
       const user = await User.findOne({
         where: { email },
         rejectOnEmpty: false,

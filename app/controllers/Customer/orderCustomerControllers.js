@@ -1,7 +1,7 @@
 require("dotenv").config();
-const slugify = require("slugify");
 const { FIREBASE_STORAGE_BUCKET } = process.env;
 const { Car, Order, User } = require("../../databases/models");
+const slugify = require("slugify");
 const firebase = require("../../helpers/firebaseHelpers");
 
 class OrderCustomerControllers {
