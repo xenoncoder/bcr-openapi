@@ -1,6 +1,6 @@
-"use strict";
-const { User } = require("../databases/models");
-const { verifyToken } = require("../helpers/jwtHelpers");
+'use strict';
+const {User} = require('../databases/models');
+const {verifyToken} = require('../helpers/jwtHelpers');
 
 class AuthMiddlewares {
   static async serverAuth(req, res, next) {
@@ -14,17 +14,17 @@ class AuthMiddlewares {
         },
       });
 
-      if (data === null || data.role !== "Admin") {
+      if (data === null || data.role !== 'Admin') {
         res
-          .status(401)
-          .json({ name: "unauthorized", message: "you are not admin" });
+            .status(401)
+            .json({name: 'unauthorized', message: 'you are not admin'});
       } else {
         req.admin = data;
         next();
       }
     } catch (err) {
       res.status(401).json({
-        name: "unauthorized",
+        name: 'unauthorized',
         message: `you don't have access token`,
       });
     }
@@ -42,7 +42,7 @@ class AuthMiddlewares {
 
       if (data === null) {
         res.status(401).json({
-          name: "unauthorized",
+          name: 'unauthorized',
           message: `you don't have access token`,
         });
       } else {
@@ -51,7 +51,7 @@ class AuthMiddlewares {
       }
     } catch (err) {
       res.status(401).json({
-        name: "unauthorized",
+        name: 'unauthorized',
         message: `you don't have access token`,
       });
     }

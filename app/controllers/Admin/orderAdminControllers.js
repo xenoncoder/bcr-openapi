@@ -1,4 +1,4 @@
-const { Car, Order, User } = require("../../databases/models");
+const {Car, Order, User} = require('../../databases/models');
 
 class OrderAdminControllers {
   static async getOrdersAdmin(req, res) {
@@ -8,13 +8,13 @@ class OrderAdminControllers {
           {
             model: User,
             attributes: {
-              exclude: ["id", "password", "createdAt", "updatedAt"],
+              exclude: ['id', 'password', 'createdAt', 'updatedAt'],
             },
           },
           {
             model: Car,
             attributes: {
-              exclude: ["id", "createdAt", "updatedAt"],
+              exclude: ['id', 'createdAt', 'updatedAt'],
             },
           },
         ],
@@ -34,13 +34,13 @@ class OrderAdminControllers {
           {
             model: User,
             attributes: {
-              exclude: ["id", "password", "createdAt", "updatedAt"],
+              exclude: ['id', 'password', 'createdAt', 'updatedAt'],
             },
           },
           {
             model: Car,
             attributes: {
-              exclude: ["id", "createdAt", "updatedAt"],
+              exclude: ['id', 'createdAt', 'updatedAt'],
             },
           },
         ],
@@ -56,54 +56,54 @@ class OrderAdminControllers {
       const id = req.params.id;
       const status = Number(req.body.status);
       const order = await Order.update(
-        {
-          status: true,
-        },
-        {
-          where: {
-            id,
+          {
+            status: true,
           },
-          returning: 1,
-        }
+          {
+            where: {
+              id,
+            },
+            returning: 1,
+          },
       );
       if (order[1] === 0) {
         return res.status(404).json({
-          name: "Not Found",
+          name: 'Not Found',
           message: `Order with id = ${id} is not Found`,
         });
       } else {
         if (status === 1) {
           await Car.update(
-            {
-              startRentAt: order[1][0].startRentAt,
-              finishRentAt: order[1][0].finishRentAt,
-              status: true,
-            },
-            {
-              where: {
-                id: order[1][0].carId,
+              {
+                startRentAt: order[1][0].startRentAt,
+                finishRentAt: order[1][0].finishRentAt,
+                status: true,
               },
-            }
+              {
+                where: {
+                  id: order[1][0].carId,
+                },
+              },
           );
           res
-            .status(200)
-            .json({ name: "Success", message: `Car start to rent` });
+              .status(200)
+              .json({name: 'Success', message: `Car start to rent`});
         } else {
           await Car.update(
-            {
-              startRentAt: null,
-              finishRentAt: null,
-              status: false,
-            },
-            {
-              where: {
-                id: order[1][0].carId,
+              {
+                startRentAt: null,
+                finishRentAt: null,
+                status: false,
               },
-            }
+              {
+                where: {
+                  id: order[1][0].carId,
+                },
+              },
           );
           res
-            .status(200)
-            .json({ name: "Success", message: "Finish rent car." });
+              .status(200)
+              .json({name: 'Success', message: 'Finish rent car.'});
         }
       }
     } catch (err) {
@@ -121,12 +121,12 @@ class OrderAdminControllers {
       });
       if (data) {
         res.status(200).json({
-          name: "Delete Success",
+          name: 'Delete Success',
           message: `Order with id = ${id} has been delete`,
         });
       } else {
         res.status(404).json({
-          name: "Not Found",
+          name: 'Not Found',
           message: `Order with id = ${id} is not Found`,
         });
       }

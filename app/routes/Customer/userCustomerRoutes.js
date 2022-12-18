@@ -1,6 +1,6 @@
-const express = require("express").Router;
+const express = require('express').Router;
 const router = express();
-const UserCustomerControllers = require("../../controllers/Customer/userCustomerController");
+const UserCustomerControllers = require('../../controllers/Customer/userCustomerController');
 
 /**
  * @swagger
@@ -41,7 +41,7 @@ const UserCustomerControllers = require("../../controllers/Customer/userCustomer
  *         description: Email Already Exists.
 
  */
-router.post("/register", UserCustomerControllers.registerCustomer);
+router.post('/register', UserCustomerControllers.registerCustomer);
 
 /**
  * @swagger
@@ -87,6 +87,6 @@ router.post("/register", UserCustomerControllers.registerCustomer);
  *       400:
  *         description: Email Already Exists.
  */
-router.post("/login", UserCustomerControllers.loginCustomer);
+router.post('/login', UserCustomerControllers.loginCustomer);
 
 module.exports = router;

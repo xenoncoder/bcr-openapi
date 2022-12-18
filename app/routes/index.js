@@ -1,7 +1,7 @@
-const express = require("express").Router;
+const express = require('express').Router;
 const router = express();
-const routerAdmin = require("./Admin");
-const routerCustomer = require("./Customer");
+const routerAdmin = require('./Admin');
+const routerCustomer = require('./Customer');
 
 /**
  * @swagger
@@ -21,7 +21,7 @@ const routerCustomer = require("./Customer");
  *                 type: string
  *                 example: Something went wrong.
  * */
-router.use("/api/admin", routerAdmin);
-router.use("/api/customer", routerCustomer);
+router.use('/api/admin', routerAdmin);
+router.use('/api/customer', routerCustomer);
 
 module.exports = router;

@@ -1,6 +1,6 @@
-const express = require("express").Router;
+const express = require('express').Router;
 const router = express();
-const OrderCustomerControllers = require("../../controllers/Customer/orderCustomerControllers");
+const OrderCustomerControllers = require('../../controllers/Customer/orderCustomerControllers');
 
 /**
  * @swagger
@@ -38,7 +38,7 @@ const OrderCustomerControllers = require("../../controllers/Customer/orderCustom
  *             schema:
  *               $ref: "#/components/schemas/Order"
  */
-router.post("/", OrderCustomerControllers.addOrderCustomer);
+router.post('/', OrderCustomerControllers.addOrderCustomer);
 
 /**
  * @swagger
@@ -69,7 +69,7 @@ router.post("/", OrderCustomerControllers.addOrderCustomer);
  *                       Car:
  *                         $ref: "#/components/schemas/Car"
  */
-router.get("/", OrderCustomerControllers.getOrdersCustomer);
+router.get('/', OrderCustomerControllers.getOrdersCustomer);
 
 /**
  * @swagger
@@ -104,7 +104,7 @@ router.get("/", OrderCustomerControllers.getOrdersCustomer);
  *                     Car:
  *                       $ref: "#/components/schemas/Car"
  */
-router.get("/:id", OrderCustomerControllers.getOrderByIdCustomer);
+router.get('/:id', OrderCustomerControllers.getOrderByIdCustomer);
 
 /**
  * @swagger
@@ -143,7 +143,7 @@ router.get("/:id", OrderCustomerControllers.getOrderByIdCustomer);
  *             schema:
  *               $ref: "#/components/schemas/Order"
  */
-router.put("/:id/slip", OrderCustomerControllers.uploadSlipOrderCustomer);
+router.put('/:id/slip', OrderCustomerControllers.uploadSlipOrderCustomer);
 
 /**
  * @swagger
@@ -189,7 +189,7 @@ router.put("/:id/slip", OrderCustomerControllers.uploadSlipOrderCustomer);
  *             schema:
  *               $ref: "#/components/schemas/Order"
  */
-router.put("/:id", OrderCustomerControllers.updateOrderCustomer);
+router.put('/:id', OrderCustomerControllers.updateOrderCustomer);
 
 /**
  * @swagger
@@ -224,6 +224,6 @@ router.put("/:id", OrderCustomerControllers.updateOrderCustomer);
  *                   type: string
  *                   example: "Order with id = 1 has been deleted"
  */
-router.delete("/:id", OrderCustomerControllers.deleteOrderCustomer);
+router.delete('/:id', OrderCustomerControllers.deleteOrderCustomer);
 
 module.exports = router;

@@ -1,12 +1,12 @@
-"use strict";
-const cars = require("../data/car.json");
+'use strict';
+const cars = require('../data/car.json');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert("Cars", cars, {});
+    await queryInterface.bulkInsert('Cars', cars, {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("Cars", null, {});
+    await queryInterface.bulkDelete('Cars', null, {});
   },
 };

@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 
 const {
   FIREBASE_API_KEY,
@@ -10,11 +10,11 @@ const {
   FIREBASE_MEASUREMENT_ID,
 } = process.env;
 
-const express = require("express");
+const express = require('express');
 const app = express();
 
-const firebaseAdmin = require("firebase-admin");
-const serviceAccount = require("./googleServiceAccountHelpers");
+const firebaseAdmin = require('firebase-admin');
+const serviceAccount = require('./googleServiceAccountHelpers');
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),

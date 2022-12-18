@@ -1,6 +1,6 @@
-const express = require("express").Router;
+const express = require('express').Router;
 const router = express();
-const OrderAdminControllers = require("../../controllers/Admin/orderAdminControllers");
+const OrderAdminControllers = require('../../controllers/Admin/orderAdminControllers');
 
 /**
  * @swagger
@@ -31,7 +31,7 @@ const OrderAdminControllers = require("../../controllers/Admin/orderAdminControl
  *                     Car:
  *                       $ref: "#/components/schemas/Car"
  */
-router.get("/", OrderAdminControllers.getOrdersAdmin);
+router.get('/', OrderAdminControllers.getOrdersAdmin);
 
 /**
  * @swagger
@@ -66,7 +66,7 @@ router.get("/", OrderAdminControllers.getOrdersAdmin);
  *                   Car:
  *                     $ref: "#/components/schemas/Car"
  */
-router.get("/:id", OrderAdminControllers.getOrderByIdAdmin);
+router.get('/:id', OrderAdminControllers.getOrderByIdAdmin);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ router.get("/:id", OrderAdminControllers.getOrderByIdAdmin);
  *       404:
  *         description: Order not found
  */
-router.patch("/:id", OrderAdminControllers.changeStatusAdmin);
+router.patch('/:id', OrderAdminControllers.changeStatusAdmin);
 
 /**
  * @swagger
@@ -132,6 +132,6 @@ router.patch("/:id", OrderAdminControllers.changeStatusAdmin);
  *       404:
  *         description: Order not found
  */
-router.delete("/:id", OrderAdminControllers.deleteOrderAdmin);
+router.delete('/:id', OrderAdminControllers.deleteOrderAdmin);
 
 module.exports = router;

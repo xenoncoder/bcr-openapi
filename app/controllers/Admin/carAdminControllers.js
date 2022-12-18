@@ -1,33 +1,33 @@
-require("dotenv").config();
-const { FIREBASE_STORAGE_BUCKET } = process.env;
-const { Car } = require("../../databases/models");
-const firebase = require("../../helpers/firebaseHelpers");
+require('dotenv').config();
+const {FIREBASE_STORAGE_BUCKET} = process.env;
+const {Car} = require('../../databases/models');
+const firebase = require('../../helpers/firebaseHelpers');
 
 class CarAdminControllers {
   static async addCarAdmin(req, res) {
     try {
-      const { name, category, price, status } = req.body;
+      const {name, category, price, status} = req.body;
       const searchCar = await Car.findOne({
-        where: { name },
+        where: {name},
         rejectOnEmpty: false,
       });
       if (searchCar) {
         res.status(400).json({
-          message: "Mobil Sudah Ada",
+          message: 'Mobil Sudah Ada',
         });
       } else {
         let addImgUrl;
         if (!req.files || Object.keys(req.files).length === 0) {
           addImgUrl = null;
         } else {
-          let image = req.files.image;
+          const image = req.files.image;
           let imgName = `mobil-${Number(new Date())}-${image.name}`;
-          imgName = imgName.replace(/ /g, "_");
+          imgName = imgName.replace(/ /g, '_');
           addImgUrl = `https://firebasestorage.googleapis.com/v0/b/${FIREBASE_STORAGE_BUCKET}/o/uploads%2Fcars%2F${imgName}?alt=media`;
           await firebase
-            .file(`uploads/cars/${imgName}`)
-            .createWriteStream()
-            .end(req.files.image.data);
+              .file(`uploads/cars/${imgName}`)
+              .createWriteStream()
+              .end(req.files.image.data);
         }
 
         const data = await Car.create({
@@ -37,21 +37,21 @@ class CarAdminControllers {
           status,
           image: addImgUrl,
         });
-        res.status(201).json({ message: "Mobil Berhasil Ditambahkan", data });
+        res.status(201).json({message: 'Mobil Berhasil Ditambahkan', data});
       }
     } catch (err) {
-      res.status(500).json({ message: "Gagal Menambahkan Mobil", err });
+      res.status(500).json({message: 'Gagal Menambahkan Mobil', err});
     }
   }
 
   static async getCarsAdmin(req, res) {
     try {
-      const data = await Car.findAll({ order: [["id", "ASC"]] });
+      const data = await Car.findAll({order: [['id', 'ASC']]});
       res
-        .status(200)
-        .json({ message: "Berhasil Menampilkan Daftar Mobil", data });
+          .status(200)
+          .json({message: 'Berhasil Menampilkan Daftar Mobil', data});
     } catch (err) {
-      res.status(500).json({ message: "Gagal Menampilkan Daftar Mobil", err });
+      res.status(500).json({message: 'Gagal Menampilkan Daftar Mobil', err});
     }
   }
 
@@ -59,54 +59,54 @@ class CarAdminControllers {
     try {
       const id = req.params.id;
       const data = await Car.findOne({
-        where: { id },
+        where: {id},
         rejectOnEmpty: true,
       });
       res
-        .status(200)
-        .json({ message: "Berhasil Menampilkan Detail Mobil", data });
+          .status(200)
+          .json({message: 'Berhasil Menampilkan Detail Mobil', data});
     } catch (err) {
-      res.status(500).json({ message: "Gagal Menampilkan Detail Mobil", err });
+      res.status(500).json({message: 'Gagal Menampilkan Detail Mobil', err});
     }
   }
 
   static async editCarAdmin(req, res) {
     try {
       const id = req.params.id;
-      const { name, category, price } = req.body;
+      const {name, category, price} = req.body;
       const searchCar = await Car.findOne({
-        where: { name },
+        where: {name},
         rejectOnEmpty: false,
       });
       if (searchCar) {
         res.status(400).json({
-          message: "Mobil Sudah Ada",
+          message: 'Mobil Sudah Ada',
         });
       } else {
         let editImgUrl;
         if (!req.files || Object.keys(req.files).length === 0) {
           editImgUrl = null;
         } else {
-          let image = req.files.image;
+          const image = req.files.image;
           let imgName = `mobil-${Number(new Date())}-${image.name}`;
-          imgName = imgName.replace(/ /g, "_");
+          imgName = imgName.replace(/ /g, '_');
           editImgUrl = `https://firebasestorage.googleapis.com/v0/b/${FIREBASE_STORAGE_BUCKET}/o/uploads%2Fcars%2F${imgName}?alt=media`;
           await firebase
-            .file(`uploads/cars/${imgName}`)
-            .createWriteStream()
-            .end(req.files.image.data);
+              .file(`uploads/cars/${imgName}`)
+              .createWriteStream()
+              .end(req.files.image.data);
         }
         const data = await Car.update(
-          {
-            name,
-            category,
-            price,
-            image: editImgUrl,
-          },
-          {
-            where: { id },
-            returning: 1,
-          }
+            {
+              name,
+              category,
+              price,
+              image: editImgUrl,
+            },
+            {
+              where: {id},
+              returning: 1,
+            },
         );
         if (data[0]) {
           res.status(200).json(data[1][0]);
@@ -117,7 +117,7 @@ class CarAdminControllers {
         }
       }
     } catch (err) {
-      res.status(500).json({ message: "Gagal Memperbaharui Mobil", err });
+      res.status(500).json({message: 'Gagal Memperbaharui Mobil', err});
     }
   }
 
@@ -139,7 +139,7 @@ class CarAdminControllers {
         });
       }
     } catch (err) {
-      res.status(500).json({ message: `Gagal Menghapus Mobil`, err });
+      res.status(500).json({message: `Gagal Menghapus Mobil`, err});
     }
   }
 }

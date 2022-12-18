@@ -1,4 +1,4 @@
-const { Car } = require("../../databases/models");
+const {Car} = require('../../databases/models');
 
 class CarCustomerControllers {
   static async getCarsCustomer(req, res) {
@@ -14,14 +14,14 @@ class CarCustomerControllers {
     try {
       const id = req.params.id;
       const car = await Car.findOne({
-        where: { id },
+        where: {id},
         rejectOnEmpty: true,
       });
       if (car) {
         res.status(200).json(car);
       } else {
         res.status(404).json({
-          name: "Not Found",
+          name: 'Not Found',
           message: `Car with id = ${id} is not Found`,
         });
       }
